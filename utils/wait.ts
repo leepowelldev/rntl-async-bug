@@ -1,9 +1,11 @@
 function wait({
   ms = 1000,
   signal,
-}: { ms?: number; signal?: AbortSignal } = {}) {
+}: { ms?: number; signal?: AbortSignal } = {}): Promise<void> {
   return new Promise((resolve, reject) => {
-    const id = setTimeout(resolve, ms);
+    const id = setTimeout(() => {
+      resolve()
+    }, ms);
 
     if (signal) {
       signal.addEventListener('abort', () => {
