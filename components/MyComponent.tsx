@@ -14,7 +14,7 @@ function MyComponent() {
 
     setIsLoading(true);
 
-    wait({ signal: abortController.signal })
+    wait({ ms: 500, signal: abortController.signal })
       .then(() => {
         setA(true);
       })
@@ -33,7 +33,7 @@ function MyComponent() {
       return;
     }
 
-    wait({ signal: abortController.signal })
+    wait({ ms: 1000, signal: abortController.signal })
       .then(() => {
         setB(true);
       })
@@ -52,7 +52,7 @@ function MyComponent() {
       return;
     }
 
-    wait({ signal: abortController.signal })
+    wait({ ms: 2000, signal: abortController.signal })
       .then(() => {
         setIsLoading(false);
       })
